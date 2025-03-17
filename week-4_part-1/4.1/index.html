@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+
+</head>
+
+<body>
+
+    <script>
+        //debouncing, throttling
+        let timeout;
+        function debouncepopulateDiv () {
+            clearTimeout(timeout);
+            timeout = setTimeout(function() {
+                populateDiv()
+            }, 500);
+        }
+  
+        // using .then matthod
+         
+        function populateDiv() {
+  
+            const a = document.getElementById("firstNumber").value;
+            const b = document.getElementById("secondNumber").value;
+
+            if (!a || !b) {
+               document.getElementById("finalSum").innerHTML = "Please enter both numbers";
+               return;
+    }
+            fetch("http://localhost:3000/sum?a=" + a + "&b=" + b)
+                .then(function (response) {
+                    return response.text()
+                }).then(function (ans) {
+                    document.getElementById("finalSum").innerHTML = ans;
+                });
+        }
+
+        // Using async and await
+
+        // async function populateDiv2() {
+        //     const a = document.getElementById("firstNumber").value;
+        //     const b = document.getElementById("secondNumber").value;
+
+        //     const response = await fetch("https://sum-server.100xdevs.com/sum?a=" + a + "&b=" + b)
+        //     const ans = await response.text();
+        //     document.getElementById("finalSum").innerHTML = ans;
+        // }
+    </script>
+
+<input oninput="debouncepopulateDiv()" id="firstNumber" type="text" placeholder="First Number"></input> <br /> <br />
+<input oninput="debouncepopulateDiv()" id="secondNumber" type="text" placeholder="Second Number"></input><br /> <br />
+
+<div id="finalSum"></div>
+</body>
+
+</html>
