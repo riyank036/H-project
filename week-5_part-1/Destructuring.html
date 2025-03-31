@@ -1,0 +1,135 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //  1. Extracting values from an object
+function objectDestructuring() {
+
+  const person = { name: 'John', age: 30, occupation: 'Developer' };
+        
+  const { name, age } = person;
+  
+  console.log(name); // Output: John
+  console.log(age);  // Output: 30
+}
+  
+objectDestructuring();  
+  
+
+// 2. Extracting values from an array
+
+function arrayDestructuring() {
+
+  const colors = ['red', 'green', 'blue'];
+  
+  const [firstColor, secondColor, thirdColor] = colors;
+  
+  console.log(firstColor);  // Output: red
+  console.log(secondColor); // Output: green
+  console.log(thirdColor);  // Output: blue
+}
+  
+arrayDestructuring();
+
+
+// 3. Extracting values from a nested object
+
+function nestedObjectDestructuring() {
+  
+  const person = {
+    name: 'John',
+    address: {
+      street: '123 Main St',
+      city: 'Anytown',
+      state: 'CA'
+    }
+  };
+  
+  const { name, address: { street, city , state } } = person;
+  
+  console.log(name);  // Output: John
+  console.log(street); // Output: 123 Main St
+  console.log(city);  // Output: Anytown
+  console.log(state);  // Output: CA
+}
+
+nestedObjectDestructuring();
+
+
+// 4. Assigning default values
+
+function assigningDefaultValuesDestructuring() {
+  
+  const person = { name: 'John' };
+  
+  const { name, age = 30, gender = 'male' } = person;
+  
+  console.log(name); // Output: John
+  console.log(age);  // Output: 30
+  console.log(gender); // Output: male
+}
+
+assigningDefaultValuesDestructuring();
+
+
+// 5. Swapping values
+
+function swappingValuesDestructuring() {
+
+  let a = 10;
+  let b = 20;
+  
+  [a, b] = [b, a];
+  
+  console.log(a); // Output: 20
+  console.log(b); // Output: 10
+}
+
+swappingValuesDestructuring();
+
+
+
+// Why Use Object Destructuring for Multiple Return Values?
+
+// 1. Named values: When you use object destructuring, you can assign names to each value, making it clear what each value represents. With array destructuring, you have to rely on the index of the value, which can be error-prone and less readable.
+
+function calculateRectArea(width, height) {
+  return { area: width * height, perimeter: 2 * (width + height) };
+}
+
+const { area, perimeter } = calculateRectArea(10, 20);
+console.log(area); // Output: 200
+console.log(perimeter); // Output: 60
+
+
+// 2. Flexibility: Object destructuring allows you to easily add or remove values from the returned object without affecting the existing code. With array destructuring, changing the order or number of values can break the code.
+
+// function calculateRectArea(width, height) {
+//   return { area: width * height, perimeter: 2 * (width + height), diagonal: Math.sqrt(width ** 2 + height ** 2) };
+// }
+
+// const { area, perimeter } = calculateRectArea(10, 20);
+// console.log(area); // Output: 200
+// console.log(perimeter); // Output: 60
+
+
+// 3. Readability: Object destructuring makes the code more readable by clearly indicating what each value represents. With array destructuring, the code can become harder to read, especially when dealing with multiple values.
+
+// function calculateRectArea(width, height) {
+//   return [width * height, 2 * (width + height)];
+// }
+
+// const [area, perimeter] = calculateRectArea(10, 20);
+// console.log(area); // Output: 200
+// console.log(perimeter); // Output: 60
+
+    </script>
+  </body>
+  </html>
+  
+  
