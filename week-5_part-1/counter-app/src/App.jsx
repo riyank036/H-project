@@ -1,4 +1,5 @@
 //Hook
+import React from "react";
 import { useState } from "react";
 
 export default function App() {
@@ -16,9 +17,14 @@ export default function App() {
 
 // components
 function CustomButton(props) {
+
   function onClickHandler() {
     props.setCount(props.count + 1);
   }
 
-  return <button onClick={onClickHandler}>Counter {props.count}</button>;
+  return React.createElement(
+    'button', 
+    { onClick: onClickHandler },
+    `Counter ${props.count}`
+  );
 }
