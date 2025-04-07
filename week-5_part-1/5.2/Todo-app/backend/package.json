@@ -1,0 +1,28 @@
+{
+  "name": "todo-backend",
+  "version": "1.0.0",
+  "description": "This is a simple todo application backend",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riyank036/Todo-app.git"
+  },
+  "author": "Riyank",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riyank036/Todo-app/issues"
+  },
+  "homepage": "https://github.com/riyank036/Todo-app#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.13.2",
+    "node": "^23.11.0",
+    "nodemon": "^3.1.9",
+    "zod": "^3.24.2"
+  }
+}
