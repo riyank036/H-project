@@ -1,9 +1,12 @@
 import express from 'express';
 import { createTodo, updateTodo } from "./types.js"
 import { todo } from './db.js'
-
+import cors from 'cors';
 const app = express();
 const port = 3000;
+
+app.use(cors({
+  origin: 'http://localhost:5173'}));
 app.use(express.json());
 
 app.post('/todo', async (req,res) => {
@@ -22,7 +25,7 @@ app.post('/todo', async (req,res) => {
   })
 
   res.json({
-    msg: "Todo Created"
+    msg: "Todo Created" 
   })
 })
 
